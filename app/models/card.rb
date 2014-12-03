@@ -18,6 +18,6 @@ class Card < ActiveRecord::Base
   end
 
   def get_card_class
-    'card-%s-%s' % [self.rate%12, self.suit]
+    'card-%s-%s' % [(self.rate+1) % Card::RATES.size, self.suit]
   end
 end
