@@ -1,3 +1,7 @@
+<% content_for :side_menu do %>
+    <%= render 'widgets/stats' %>
+<% end %>
+
 <h1>Стол</h1>
 <p>Адресс текушей партии: <%= link_to(@table.id, {controller: 'table', action: 'index', id: @table.id}) %></p>
 
