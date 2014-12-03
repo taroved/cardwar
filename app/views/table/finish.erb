@@ -1,0 +1,9 @@
+<h1><%= @table.winner==Table::WINNER_DEALER ? 'Попробуйте еще.' : 'Поздравляем. Вы победили!' %></h1>
+<%= form_tag('/table/%s' % @table.id, {:method => :post}) do %>
+    <div class="row">
+      <div style="text-align: center">
+        <%= button_tag('Новая игра', {class: 'btn btn-success btn-lg'}) %>
+        <%= link_to('На главную', {controller: :main, action: :index}, {class: 'btn btn-primary btn-lg'}) %>
+      </div>
+    </div>
+<% end %>

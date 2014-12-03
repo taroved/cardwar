@@ -1,0 +1,44 @@
+<h1>Стол</h1>
+<p>Адресс текушей партии: <%= link_to(@table.id, {controller: 'table', action: 'index', id: @table.id}) %></p>
+
+<% if !@history_turns.nil? %>
+    <% @history_turns.each do |turn| %>
+        <span class="card card-small <%= turn.card_dealer.get_card_class %>"></span>
+        <span class="card card-small <%= turn.card_user.get_card_class %>"></span>
+        &nbsp;
+    <% end %>
+<% end %>
+<div class="row">
+  <div class="col-xs-6 text-right">
+    <span class="card card-shirt"></span>
+  </div>
+  <div class="col-xs-6">
+    Карт у диллера:
+    <h1><%= @table.stack_dealer_size %></h1>
+  </div>
+</div>
+<% if !@turn.nil? %>
+    <div class="row">
+      <div class="col-xs-6 text-right">
+        <span class="card <%= @turn.card_dealer.get_card_class %>"></span>
+      </div>
+      <div class="col-xs-6">
+        <div class="card <%= @turn.card_user.get_card_class %>"></div>
+      </div>
+    </div>
+<% end %>
+<div class="row">
+  <div class="col-xs-6 text-right">
+    Карт у меня:
+    <h1><%= @table.stack_user_size %></h1>
+    моя колода ->
+  </div>
+  <div class="col-xs-6">
+    <span class="card card-shirt"></span>
+  </div>
+</div>
+<%= form_tag('/table/%s' % @table.id, {:method => :put}) do %>
+    <div class="row">
+      <%= button_tag('Ход', {class: 'center-block btn btn-success btn-lg'}) %>
+    </div>
+<% end %>
