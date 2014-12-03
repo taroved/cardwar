@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.history-win {
+  border-bottom: 5px solid green;
+}
+.history-lose {
+  border-bottom: 5px solid brown;
+}
+.history-draw {
+  border-bottom: 1px solid black;
+}
+
 .card {
   width: (1280px / 13);
   height: (715px / 5);

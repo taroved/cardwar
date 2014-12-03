@@ -3,8 +3,10 @@
 
 <% if !@history_turns.nil? %>
     <% @history_turns.each do |turn| %>
+        <span class="<%= turn.get_history_class %>">
         <span class="card card-small <%= turn.card_dealer.get_card_class %>"></span>
         <span class="card card-small <%= turn.card_user.get_card_class %>"></span>
+        </span>
         &nbsp;
     <% end %>
 <% end %>
