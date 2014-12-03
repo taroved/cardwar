@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'main/index'
+  root 'main#index'
 
-  get 'table/new'
-
-  get 'table/index'
-
-  get 'table/turn'
+  post '/table/new', to: 'table#new'
+  get '/table/:id', to: 'table#index'
+  put '/table/:id', to: 'table#turn'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -61,10 +59,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  root 'main#index'
-
-  post '/table/new', to: 'table#new'
-  get '/table/:id', to: 'table#index'
-  put '/table/:id', to: 'table#turn'
 end
