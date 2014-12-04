@@ -2,22 +2,47 @@ class Table < ActiveRecord::Base
   WINNER_DEALER = 0
   WINNER_USER = 1
 
+  def stack_dealer=(stack_array)
+    write_attribute(:stack_dealer, stack_array.map { |c| c.to_i }.join(','))
+  end
+
+  def stack_dealer
+    read_attribute(:stack_dealer).split(',')
+  end
+
+  def stack_user=(stack_array)
+    write_attribute(:stack_user, stack_array.map { |c| c.to_i }.join(','))
+  end
+
+  def stack_user
+    read_attribute(:stack_user).split(',')
+  end
+
+  def stack_turn=(stack_array)
+    write_attribute(:stack_turn, stack_array.map { |c| c.to_i }.join(','))
+  end
+
+  def stack_turn
+    read_attribute(:stack_turn).split(',')
+  end
+
   def self.create_random
+    ordered_cards = Card.order(:rate, :suit)
     t = self.new
     stack1, stack2 = Card.random_stacks()
-    t.stack_dealer = stack1.join(',')
-    t.stack_user = stack2.join(',')
-    t.stack_turn = [].join(',')
+    t.stack_dealer = ordered_cards.map{|c| c.id }.flatten[0,26]#stack1
+    t.stack_user = ordered_cards.map{|c| c.id }.flatten[26,26]#stack2
+    t.stack_turn = []
     t.save
     return t
   end
 
   def stack_dealer_size
-    self.stack_dealer.split(',').size
+    self.stack_dealer.size
   end
 
   def stack_user_size
-    self.stack_user.split(',').size
+    self.stack_user.size
   end
 
   def turn
@@ -27,10 +52,10 @@ class Table < ActiveRecord::Base
       raise "The table is finished"
     end
 
-    #strings to arrays
-    dealer = self.stack_dealer.split(',').map { |c| c.to_i }
-    user = self.stack_user.split(',').map { |c| c.to_i }
-    turn = self.stack_turn.split(',').map { |c| c.to_i }
+    #get arrays
+    dealer = self.stack_dealer
+    user = self.stack_user
+    turn = self.stack_turn
 
     dealer_card = dealer.shift
     user_card = user.shift
@@ -47,17 +72,17 @@ class Table < ActiveRecord::Base
 
     #check winner
     if dealer.empty?
-      self.winner = self::WINNER_USER
+      self.winner = Table::WINNER_USER
       self.finished = true
     elsif user.empty?
-      self.winner = self::WINNER_DEALER
+      self.winner = Table::WINNER_DEALER
       self.finished = true
     end
 
     #save state
-    self.stack_dealer = dealer.join(',')
-    self.stack_user = user.join(',')
-    self.stack_turn = turn.join(',')
+    self.stack_dealer = dealer
+    self.stack_user = user
+    self.stack_turn = turn
     self.save
 
     #save turn
