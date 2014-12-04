@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  stack_user: MyString
-  stack_diller: MyString
+dealer_luck:
+  id: c0dbbf2e-0fd7-47fa-94b7-c6acff06225c
+  stack_user: '1,14,27,40,2,15,28,41,3,16,29,42,4,17,30,43,5,18,31,44,6,19,32,45,7,20'
+  stack_dealer: '33,46,8,21,34,47,9,22,35,48,10,23,36,49,11,24,37,50,12,25,38,51,13,26,39,52'
+  stack_turn: ''
   finished: false
-  winner: 1
+  winner: 0
 
-two:
-  stack_user: MyString
-  stack_diller: MyString
+user_luck:
+  id: c0dbbf2e-0fd7-47fa-94b7-c6acff06225d
+  stack_user: '33,46,8,21,34,47,9,22,35,48,10,23,36,49,11,24,37,50,12,25,38,51,13,26,39,52'
+  stack_dealer: '1,14,27,40,2,15,28,41,3,16,29,42,4,17,30,43,5,18,31,44,6,19,32,45,7,20'
+  stack_turn: ''
   finished: false
-  winner: 1
+  winner: 0

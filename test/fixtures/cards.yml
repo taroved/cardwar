@@ -1,9 +1,208 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  rate: 1
-  suit: 1
-
-two:
-  rate: 1
-  suit: 1
+card1:
+    id: 1
+    rate: 0
+    suit: 0
+card2:
+    id: 2
+    rate: 1
+    suit: 0
+card3:
+    id: 3
+    rate: 2
+    suit: 0
+card4:
+    id: 4
+    rate: 3
+    suit: 0
+card5:
+    id: 5
+    rate: 4
+    suit: 0
+card6:
+    id: 6
+    rate: 5
+    suit: 0
+card7:
+    id: 7
+    rate: 6
+    suit: 0
+card8:
+    id: 8
+    rate: 7
+    suit: 0
+card9:
+    id: 9
+    rate: 8
+    suit: 0
+card10:
+    id: 10
+    rate: 9
+    suit: 0
+card11:
+    id: 11
+    rate: 10
+    suit: 0
+card12:
+    id: 12
+    rate: 11
+    suit: 0
+card13:
+    id: 13
+    rate: 12
+    suit: 0
+card14:
+    id: 14
+    rate: 0
+    suit: 1
+card15:
+    id: 15
+    rate: 1
+    suit: 1
+card16:
+    id: 16
+    rate: 2
+    suit: 1
+card17:
+    id: 17
+    rate: 3
+    suit: 1
+card18:
+    id: 18
+    rate: 4
+    suit: 1
+card19:
+    id: 19
+    rate: 5
+    suit: 1
+card20:
+    id: 20
+    rate: 6
+    suit: 1
+card21:
+    id: 21
+    rate: 7
+    suit: 1
+card22:
+    id: 22
+    rate: 8
+    suit: 1
+card23:
+    id: 23
+    rate: 9
+    suit: 1
+card24:
+    id: 24
+    rate: 10
+    suit: 1
+card25:
+    id: 25
+    rate: 11
+    suit: 1
+card26:
+    id: 26
+    rate: 12
+    suit: 1
+card27:
+    id: 27
+    rate: 0
+    suit: 2
+card28:
+    id: 28
+    rate: 1
+    suit: 2
+card29:
+    id: 29
+    rate: 2
+    suit: 2
+card30:
+    id: 30
+    rate: 3
+    suit: 2
+card31:
+    id: 31
+    rate: 4
+    suit: 2
+card32:
+    id: 32
+    rate: 5
+    suit: 2
+card33:
+    id: 33
+    rate: 6
+    suit: 2
+card34:
+    id: 34
+    rate: 7
+    suit: 2
+card35:
+    id: 35
+    rate: 8
+    suit: 2
+card36:
+    id: 36
+    rate: 9
+    suit: 2
+card37:
+    id: 37
+    rate: 10
+    suit: 2
+card38:
+    id: 38
+    rate: 11
+    suit: 2
+card39:
+    id: 39
+    rate: 12
+    suit: 2
+card40:
+    id: 40
+    rate: 0
+    suit: 3
+card41:
+    id: 41
+    rate: 1
+    suit: 3
+card42:
+    id: 42
+    rate: 2
+    suit: 3
+card43:
+    id: 43
+    rate: 3
+    suit: 3
+card44:
+    id: 44
+    rate: 4
+    suit: 3
+card45:
+    id: 45
+    rate: 5
+    suit: 3
+card46:
+    id: 46
+    rate: 6
+    suit: 3
+card47:
+    id: 47
+    rate: 7
+    suit: 3
+card48:
+    id: 48
+    rate: 8
+    suit: 3
+card49:
+    id: 49
+    rate: 9
+    suit: 3
+card50:
+    id: 50
+    rate: 10
+    suit: 3
+card51:
+    id: 51
+    rate: 11
+    suit: 3
+card52:
+    id: 52
+    rate: 12
+    suit: 3
