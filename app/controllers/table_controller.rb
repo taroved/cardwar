@@ -5,7 +5,7 @@ class TableController < ApplicationController
   end
 
   def index
-    if @table = Table.where(id: params[:id], finished: 0).first
+    if @table = Table.where(id: params[:id], finished: false).first
       @history_turns = Turn.where(table_id: @table.id).order(created_at: :desc).limit(10).offset(1)
       @turn = Turn.where(table_id: @table.id).order(created_at: :desc).first
     else
@@ -14,14 +14,22 @@ class TableController < ApplicationController
   end
 
   def turn
-    @table = Table.find(params[:id])
-    @turn = @table.turn
-    @history_turns = Turn.where(table_id: @table.id).order(created_at: :desc).limit(10).offset(1)
-    if @table.finished?
-      render :finish
-    else
-      render :index
-    end
+    if @table = Table.where(id: params[:id]).first
 
+      if @table.finished?
+        render :finish
+      else
+        @turn = @table.turn
+        if @table.finished?
+          render :finish
+        else
+          @history_turns = Turn.where(table_id: @table.id).order(created_at: :desc).limit(10).offset(1)
+          render :index
+        end
+      end
+
+    else
+      redirect_to :controller => 'main'
+    end
   end
 end
