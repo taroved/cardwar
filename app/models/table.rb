@@ -27,11 +27,10 @@ class Table < ActiveRecord::Base
   end
 
   def self.create_random
-    ordered_cards = Card.order(:rate, :suit)
     t = self.new
     stack1, stack2 = Card.random_stacks()
-    t.stack_dealer = ordered_cards.map{|c| c.id }.flatten[0,26]#stack1
-    t.stack_user = ordered_cards.map{|c| c.id }.flatten[26,26]#stack2
+    t.stack_dealer = stack1
+    t.stack_user = stack2
     t.stack_turn = []
     t.save
     return t
