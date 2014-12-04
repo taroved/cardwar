@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202171025) do
+ActiveRecord::Schema.define(version: 20141204134111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141202171025) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "turns", ["table_id", "created_at"], name: "index_turns_on_table_id_and_created_at", using: :btree
   add_index "turns", ["table_id"], name: "index_turns_on_table_id", using: :btree
 
   add_foreign_key "turns", "tables"
