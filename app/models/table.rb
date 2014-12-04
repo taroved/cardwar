@@ -3,27 +3,27 @@ class Table < ActiveRecord::Base
   WINNER_USER = 1
 
   def stack_dealer=(stack_array)
-    write_attribute(:stack_dealer, stack_array.map { |c| c.to_i }.join(','))
+    write_attribute(:stack_dealer, stack_array.join(','))
   end
 
   def stack_dealer
-    read_attribute(:stack_dealer).split(',')
+    read_attribute(:stack_dealer).split(',').map { |c| c.to_i }
   end
 
   def stack_user=(stack_array)
-    write_attribute(:stack_user, stack_array.map { |c| c.to_i }.join(','))
+    write_attribute(:stack_user, stack_array.join(','))
   end
 
   def stack_user
-    read_attribute(:stack_user).split(',')
+    read_attribute(:stack_user).split(',').map { |c| c.to_i }
   end
 
   def stack_turn=(stack_array)
-    write_attribute(:stack_turn, stack_array.map { |c| c.to_i }.join(','))
+    write_attribute(:stack_turn, stack_array.join(','))
   end
 
   def stack_turn
-    read_attribute(:stack_turn).split(',')
+    read_attribute(:stack_turn).split(',').map { |c| c.to_i }
   end
 
   def self.create_random
