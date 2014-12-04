@@ -43,7 +43,7 @@
     <span class="card card-shirt"></span>
   </div>
 </div>
-<%= form_tag('/table/%s' % @table.id, {:method => :put}) do %>
+<%= form_tag('/table/%s' % @table.id, {:method => :post}) do %>
     <div class="row">
       <%= button_tag('Ход', {class: 'center-block btn btn-success btn-lg'}) %>
     </div>

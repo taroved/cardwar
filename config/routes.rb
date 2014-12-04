@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   post '/table/new', to: 'table#new'
   get '/table/:id', to: 'table#index'
-  put '/table/:id', to: 'table#turn'
+  post '/table/:id', to: 'table#turn'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
