@@ -8,13 +8,11 @@ class Card < ActiveRecord::Base
   end
 
   def self.get_rate_by_id(id)
-    #todo:replace with math
-    self.find(id).rate
+    (id - 1) % Card::RATES.size
   end
 
   def self.get_suit_by_id(id)
-    #todo:replace with math
-    self.find(id).suit
+    (id - 1) / Card::RATES.size
   end
 
   def get_card_class

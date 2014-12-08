@@ -85,6 +85,6 @@ class Table < ActiveRecord::Base
     self.save
 
     #save turn
-    Turn.create(table: self, card_dealer: Card.find(dealer_card), card_user: Card.find(user_card))
+    Turn.create(table: self, card_dealer_id: dealer_card, card_user_id: user_card)
   end
 end
