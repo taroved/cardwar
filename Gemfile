@@ -7,6 +7,8 @@ gem 'rails', '4.2.0.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg', '0.17.1'
 
+gem 'redis-rails', '4.0.0'
+
 gem 'rails_12factor', group: :production
 
 #group :assets do

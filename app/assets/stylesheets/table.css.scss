@@ -12,10 +12,13 @@
   border-bottom: 1px solid black;
 }
 
+$card_width: round(1287px / 13);
+$card_height: round(715px / 5);
+
 .card {
-  width: (1280px / 13);
-  height: (715px / 5);
-  background-image: image_url("cards-1280x715.png");
+  width: $card_width;
+  height: $card_height;
+  background-image: image_url("cards-1287x715.png");
 }
 .card-small
 {
@@ -27,7 +30,7 @@ span.card {
 }
 
 .card-shirt {
-  background-position: -1280px/13*2 -715px/5*4;
+  background-position: -1287px/13*2 -715px/5*4;
 }
 
 $i: 0;
@@ -35,9 +38,40 @@ $i: 0;
   $j: 0;
   @while $j < 4 {
     .card-#{$i}-#{$j} {
-      background-position: -1280px/13*$i -715px/5*$j;
+      //background-position: -1280px/13*$i -715px/5*$j;
+      $x: - round(1287px/13*$i);
+      $y: - round(715px/5*$j);
+      background-position: $x $y;
     }
     $j: $j + 1;
   }
   $i: $i + 1;
+}
+
+//transparent card to fix grid rows height caused by absolute positions of cards
+.mock-card {
+  background-image: none;
+}
+/////////////
+//user shirts
+
+//.card-shirt-0 {
+//  position: relative;
+//}
+
+//** bootstrap: Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width: 30px;
+
+$i: 0;
+@while $i < 52 {
+  .card-shirt-#{$i} {
+    position: absolute;
+    left: $grid-gutter-width/2 - $i*2px;
+  }
+  $i: $i + 1;
+}
+
+
+#user_side {
+  height: $card_width;
 }

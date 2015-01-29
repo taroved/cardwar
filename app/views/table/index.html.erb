@@ -17,6 +17,7 @@
 <div class="row">
   <div class="col-xs-6 text-right">
     <span class="card card-shirt"></span>
+    <span class="card mock-card"></span>
   </div>
   <div class="col-xs-6">
     Карт у диллера:
@@ -33,14 +34,17 @@
       </div>
     </div>
 <% end %>
-<div class="row">
+<div class="row" id="user_side">
   <div class="col-xs-6 text-right">
     Карт у меня:
     <h1><%= @table.stack_user_size %></h1>
     моя колода ->
   </div>
   <div class="col-xs-6">
-    <span class="card card-shirt"></span>
+    <% @table.stack_user_size.times do |i| %>
+    <span class="card card-shirt card-shirt-<%= @table.stack_user_size - i - 1 %>"></span>
+    <% end %>
+    <span class="card mock-card"></span>
   </div>
 </div>
 <%= form_tag('/table/%s' % @table.id, {:method => :post}) do %>
